@@ -71,54 +71,58 @@
 
         <% if (instrumentos.length> 0) { %>
 
-            <table class="table table-striped table-bordered">
+            <div class="table-responsive">
 
-                <thead class="table-dark">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Fabricante</th>
-                        <th>Preço</th>
-                        <th>Tipo</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
+                <table class="table table-striped table-bordered align-middle" style="min-width: 750px;">
 
-                <tbody>
-                    <% instrumentos.forEach(instrumento=> { %>
+                    <thead class="table-dark">
                         <tr>
-                            <td>
-                                <%= instrumento.nome %>
-                            </td>
-                            <td>
-                                <%= instrumento.fabricante %>
-                            </td>
-                            <td>R$ <%= instrumento.preco %>
-                            </td>
-                            <td>
-                                <%= instrumento.tipo %>
-                            </td>
-                            <td>
-                                <a href="/instrumento/view/<%= instrumento._id %>" class="btn btn-info btn-sm">
-                                    Visualizar
-                                </a>
-                                <a href="/instrumento/edit/<%= instrumento._id %>" class="btn btn-warning btn-sm">
-                                    Editar
-                                </a>
-
-                                <form action="/instrumento/delete" method="POST" style="display: inline;">
-                                    <input type="hidden" name="id" value="<%= instrumento._id %>">
-
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('Tem certeza que deseja excluir este instrumento?')">
-                                        Excluir
-                                    </button>
-                                </form>
-                            </td>
+                            <th>Nome</th>
+                            <th>Fabricante</th>
+                            <th>Preço</th>
+                            <th>Tipo</th>
+                            <th>Ações</th>
                         </tr>
-                        <% }) %>
-                </tbody>
+                    </thead>
 
-            </table>
+                    <tbody>
+                        <% instrumentos.forEach(instrumento=> { %>
+                            <tr>
+                                <td>
+                                    <%= instrumento.nome %>
+                                </td>
+                                <td>
+                                    <%= instrumento.fabricante %>
+                                </td>
+                                <td>R$ <%= instrumento.preco %>
+                                </td>
+                                <td>
+                                    <%= instrumento.tipo %>
+                                </td>
+                                <td>
+                                    <a href="/instrumento/view/<%= instrumento._id %>" class="btn btn-info btn-sm">
+                                        Visualizar
+                                    </a>
+                                    <a href="/instrumento/edit/<%= instrumento._id %>" class="btn btn-warning btn-sm">
+                                        Editar
+                                    </a>
+
+                                    <form action="/instrumento/delete" method="POST" style="display: inline;">
+                                        <input type="hidden" name="id" value="<%= instrumento._id %>">
+
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Tem certeza que deseja excluir este instrumento?')">
+                                            Excluir
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+
+                </table>
+
+            </div>
 
             <% } else { %>
 
